@@ -1,0 +1,118 @@
+// bigint Test Program
+//
+// Tests:  int constructor, uses ==
+//
+#include <iostream>
+#include <cassert>
+#include "bigint.hpp"
+
+
+//===========================================================================
+int main () {
+  //Lower bound test
+    {
+
+        // VERY INCOMPLETE set of tests.
+
+
+        //------------------------------------------------------
+        // Setup fixture
+        bigint left(0);
+        bigint right(0);
+        bigint result;
+
+        // Test
+        result = left + right;
+
+        // Verify
+        assert(left   == 0);
+        assert(right  == 0);
+        assert(result == 0);
+    }
+
+    //One digit test
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(1);
+      bigint right(0);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 1);
+      assert(right  == 0);
+  assert(result == 1);
+    }
+    //One digit test
+    {
+      //------------------------------------------------------
+      // Setup fixture
+      bigint left(1);
+      bigint right(1);
+      bigint result;
+
+      // Test
+      result = left + right;
+
+      // Verify
+      assert(left   == 1);
+      assert(right  == 1);
+      assert(result == 2);
+    }
+
+    assert(2 == 2);   //WRONG. This will fail, of course.FIXED
+                    
+     //Double digit test
+    {
+      //Setup fixture
+      bigint left(6);
+      bigint right(9);
+      bigint result;
+
+      //Test
+      result = left + right;
+
+      //Verify
+      assert(left == 6);
+      assert(right == 9);
+      assert(result == 15);
+    }
+
+    //Multi digit test
+    {
+      //Setup fixture
+      bigint left(50);
+      bigint right(100);
+      bigint result;
+      //Test
+      result = left + right;
+
+      //Verify
+      assert(left == 50);
+      assert(right == 100);
+      assert(result == 150);
+    }
+
+    //Upper bound test
+    {
+      //Setup fixture
+      bigint left(0);
+      bigint right(500);
+      bigint result;
+
+      //Test
+      result = left + right;
+
+      //Verify
+      assert(left == 0);
+      assert(right == 500);
+      assert(result == 500);
+ }
+
+    std::cout << "Done with testing addition." << std::endl;
+}
+
+
